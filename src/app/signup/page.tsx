@@ -12,170 +12,353 @@ const SignupPage = () => {
   return (
     <>
       <section className="relative z-10 overflow-hidden pb-16 pt-36 md:pb-20 lg:pb-28 lg:pt-[180px]">
-        <div className="container">
-          <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4">
-              <div className="shadow-three mx-auto max-w-[500px] rounded bg-white px-6 py-10 dark:bg-dark sm:p-[60px]">
-                <h3 className="mb-3 text-center text-2xl font-bold text-black dark:text-white sm:text-3xl">
-                  Create your account
-                </h3>
-                <p className="mb-11 text-center text-base font-medium text-body-color">
-                  It’s totally free and super easy
-                </p>
-                <button className="border-stroke dark:text-body-color-dark dark:shadow-two mb-6 flex w-full items-center justify-center rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 hover:border-primary hover:bg-primary/5 hover:text-primary dark:border-transparent dark:bg-[#2C303B] dark:hover:border-primary dark:hover:bg-primary/5 dark:hover:text-primary dark:hover:shadow-none">
-                  <span className="mr-3">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g clipPath="url(#clip0_95:967)">
-                        <path
-                          d="M20.0001 10.2216C20.0122 9.53416 19.9397 8.84776 19.7844 8.17725H10.2042V11.8883H15.8277C15.7211 12.539 15.4814 13.1618 15.1229 13.7194C14.7644 14.2769 14.2946 14.7577 13.7416 15.1327L13.722 15.257L16.7512 17.5567L16.961 17.5772C18.8883 15.8328 19.9997 13.266 19.9997 10.2216"
-                          fill="#4285F4"
-                        />
-                        <path
-                          d="M10.2042 20.0001C12.9592 20.0001 15.2721 19.1111 16.9616 17.5778L13.7416 15.1332C12.88 15.7223 11.7235 16.1334 10.2042 16.1334C8.91385 16.126 7.65863 15.7206 6.61663 14.9747C5.57464 14.2287 4.79879 13.1802 4.39915 11.9778L4.27957 11.9878L1.12973 14.3766L1.08856 14.4888C1.93689 16.1457 3.23879 17.5387 4.84869 18.512C6.45859 19.4852 8.31301 20.0005 10.2046 20.0001"
-                          fill="#34A853"
-                        />
-                        <path
-                          d="M4.39911 11.9777C4.17592 11.3411 4.06075 10.673 4.05819 9.99996C4.0623 9.32799 4.17322 8.66075 4.38696 8.02225L4.38127 7.88968L1.19282 5.4624L1.08852 5.51101C0.372885 6.90343 0.00012207 8.4408 0.00012207 9.99987C0.00012207 11.5589 0.372885 13.0963 1.08852 14.4887L4.39911 11.9777Z"
-                          fill="#FBBC05"
-                        />
-                        <path
-                          d="M10.2042 3.86663C11.6663 3.84438 13.0804 4.37803 14.1498 5.35558L17.0296 2.59996C15.1826 0.901848 12.7366 -0.0298855 10.2042 -3.6784e-05C8.3126 -0.000477834 6.45819 0.514732 4.8483 1.48798C3.2384 2.46124 1.93649 3.85416 1.08813 5.51101L4.38775 8.02225C4.79132 6.82005 5.56974 5.77231 6.61327 5.02675C7.6568 4.28118 8.91279 3.87541 10.2042 3.86663Z"
-                          fill="#EB4335"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_95:967">
-                          <rect width="20" height="20" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </span>
-                  Sign in with Google
-                </button>
+  <div className="container">
+    <div className="-mx-4 flex flex-wrap">
+      <div className="w-full px-4">
+        <div className="shadow-three mx-auto w-[90%] md:w-[70%] max-w-[1200px] rounded bg-white px-6 py-10 dark:bg-dark sm:p-[60px]">
+          <h3 className="mb-3 text-center text-2xl font-bold text-black dark:text-white sm:text-3xl">
+            Create your account
+          </h3>
+          <p className="mb-11 text-center text-base font-medium text-body-color">
+            It’s totally free and super easy
+          </p>
+               
+                <form className="grid grid-cols-1 gap-8 md:grid-cols-2">
+  {/* Existing Fields */}
+  <div className="mb-8">
+    <label
+      htmlFor="name"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      School Name
+    </label>
+    <input
+      type="text"
+      name="name"
+      placeholder="Enter your full name"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+      required
+    />
+  </div>
 
-                <button className="border-stroke dark:text-body-color-dark dark:shadow-two mb-6 flex w-full items-center justify-center rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 hover:border-primary hover:bg-primary/5 hover:text-primary dark:border-transparent dark:bg-[#2C303B] dark:hover:border-primary dark:hover:bg-primary/5 dark:hover:text-primary dark:hover:shadow-none">
-                  <span className="mr-3">
-                    <svg
-                      fill="currentColor"
-                      width="22"
-                      height="22"
-                      viewBox="0 0 64 64"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M32 1.7998C15 1.7998 1 15.5998 1 32.7998C1 46.3998 9.9 57.9998 22.3 62.1998C23.9 62.4998 24.4 61.4998 24.4 60.7998C24.4 60.0998 24.4 58.0998 24.3 55.3998C15.7 57.3998 13.9 51.1998 13.9 51.1998C12.5 47.6998 10.4 46.6998 10.4 46.6998C7.6 44.6998 10.5 44.6998 10.5 44.6998C13.6 44.7998 15.3 47.8998 15.3 47.8998C18 52.6998 22.6 51.2998 24.3 50.3998C24.6 48.3998 25.4 46.9998 26.3 46.1998C19.5 45.4998 12.2 42.7998 12.2 30.9998C12.2 27.5998 13.5 24.8998 15.4 22.7998C15.1 22.0998 14 18.8998 15.7 14.5998C15.7 14.5998 18.4 13.7998 24.3 17.7998C26.8 17.0998 29.4 16.6998 32.1 16.6998C34.8 16.6998 37.5 16.9998 39.9 17.7998C45.8 13.8998 48.4 14.5998 48.4 14.5998C50.1 18.7998 49.1 22.0998 48.7 22.7998C50.7 24.8998 51.9 27.6998 51.9 30.9998C51.9 42.7998 44.6 45.4998 37.8 46.1998C38.9 47.1998 39.9 49.1998 39.9 51.9998C39.9 56.1998 39.8 59.4998 39.8 60.4998C39.8 61.2998 40.4 62.1998 41.9 61.8998C54.1 57.7998 63 46.2998 63 32.5998C62.9 15.5998 49 1.7998 32 1.7998Z" />
-                    </svg>
-                  </span>
-                  Sign in with Github
-                </button>
-                <div className="mb-8 flex items-center justify-center">
-                  <span className="hidden h-[1px] w-full max-w-[60px] bg-body-color/50 sm:block"></span>
-                  <p className="w-full px-5 text-center text-base font-medium text-body-color">
-                    Or, register with your email
-                  </p>
-                  <span className="hidden h-[1px] w-full max-w-[60px] bg-body-color/50 sm:block"></span>
-                </div>
-                <form>
-                  <div className="mb-8">
-                    <label
-                      htmlFor="name"
-                      className="mb-3 block text-sm text-dark dark:text-white"
-                    >
-                      {" "}
-                      Full Name{" "}
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Enter your full name"
-                      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
-                    />
-                  </div>
-                  <div className="mb-8">
-                    <label
-                      htmlFor="email"
-                      className="mb-3 block text-sm text-dark dark:text-white"
-                    >
-                      {" "}
-                      Work Email{" "}
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Enter your Email"
-                      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
-                    />
-                  </div>
-                  <div className="mb-8">
-                    <label
-                      htmlFor="password"
-                      className="mb-3 block text-sm text-dark dark:text-white"
-                    >
-                      {" "}
-                      Your Password{" "}
-                    </label>
-                    <input
-                      type="password"
-                      name="password"
-                      placeholder="Enter your Password"
-                      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
-                    />
-                  </div>
-                  <div className="mb-8 flex">
-                    <label
-                      htmlFor="checkboxLabel"
-                      className="flex cursor-pointer select-none text-sm font-medium text-body-color"
-                    >
-                      <div className="relative">
-                        <input
-                          type="checkbox"
-                          id="checkboxLabel"
-                          className="sr-only"
-                        />
-                        <div className="box mr-4 mt-1 flex h-5 w-5 items-center justify-center rounded border border-body-color border-opacity-20 dark:border-white dark:border-opacity-10">
-                          <span className="opacity-0">
-                            <svg
-                              width="11"
-                              height="8"
-                              viewBox="0 0 11 8"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M10.0915 0.951972L10.0867 0.946075L10.0813 0.940568C9.90076 0.753564 9.61034 0.753146 9.42927 0.939309L4.16201 6.22962L1.58507 3.63469C1.40401 3.44841 1.11351 3.44879 0.932892 3.63584C0.755703 3.81933 0.755703 4.10875 0.932892 4.29224L0.932878 4.29225L0.934851 4.29424L3.58046 6.95832C3.73676 7.11955 3.94983 7.2 4.1473 7.2C4.36196 7.2 4.55963 7.11773 4.71406 6.9584L10.0468 1.60234C10.2436 1.4199 10.2421 1.1339 10.0915 0.951972ZM4.2327 6.30081L4.2317 6.2998C4.23206 6.30015 4.23237 6.30049 4.23269 6.30082L4.2327 6.30081Z"
-                                fill="#3056D3"
-                                stroke="#3056D3"
-                                strokeWidth="0.4"
-                              />
-                            </svg>
-                          </span>
-                        </div>
-                      </div>
-                      <span>
-                        By creating account means you agree to the
-                        <a href="#0" className="text-primary hover:underline">
-                          {" "}
-                          Terms and Conditions{" "}
-                        </a>
-                        , and our
-                        <a href="#0" className="text-primary hover:underline">
-                          {" "}
-                          Privacy Policy{" "}
-                        </a>
-                      </span>
-                    </label>
-                  </div>
-                  <div className="mb-6">
-                    <button className="shadow-submit dark:shadow-submit-dark flex w-full items-center justify-center rounded-sm bg-primary px-9 py-4 text-base font-medium text-white duration-300 hover:bg-primary/90">
-                      Sign up
-                    </button>
-                  </div>
-                </form>
+  <div className="mb-8">
+    <label
+      htmlFor="email"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      School Email
+    </label>
+    <input
+      type="email"
+      name="email"
+      placeholder="Enter your school email"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+      required
+    />
+  </div>
+
+  <div className="mb-8">
+    <label
+      htmlFor="countryCode"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      Country Code
+    </label>
+    <input
+      type="text"
+      name="countryCode"
+      placeholder="Enter your country code"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+      required
+    />
+  </div>
+
+  <div className="mb-8">
+    <label
+      htmlFor="mobile"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      School Phone number
+    </label>
+    <input
+      type="text"
+      name="mobile"
+      placeholder="Enter your mobile number"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+      required
+    />
+  </div>
+
+
+
+  <div className="mb-8">
+    <label
+      htmlFor="address"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      Address
+    </label>
+    <input
+      type="text"
+      name="address"
+      placeholder="Enter your address"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+    />
+  </div>
+
+  <div className="mb-8">
+    <label
+      htmlFor="subdomain"
+      className="mb-3 block text-sm text-dark dark:text-white"
+      title="This is what your user would use to access your app on our platform. must be text only"
+    >
+      Subdomain (must be unique without space)
+    </label>
+    <input
+      type="text"
+      name="subdomain"
+      placeholder="yourname.ourdomain.com"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+    />
+  </div>
+
+  <div className="mb-8">
+    <label
+      htmlFor="banner"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      Banner
+    </label>
+    <input
+      type="file"
+      name="banner"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+    />
+  </div>
+
+  <div className="mb-8">
+    <label
+      htmlFor="logo"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+     Logo
+    </label>
+    <input
+      type="file"
+      name="logo"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+    />
+  </div>
+
+  <div className="mb-8">
+    <label
+      htmlFor="country"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      Country
+    </label>
+    <input
+      type="text"
+      name="country"
+      placeholder="Enter your country"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+    />
+  </div>
+
+  <div className="mb-8">
+    <label
+      htmlFor="state"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      State
+    </label>
+    <input
+      type="text"
+      name="state"
+      placeholder="Enter your state"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+    />
+  </div>
+
+  {/* New File Upload Fields */}
+  {/* <div className="mb-8">
+    <label
+      htmlFor="memorandumArticlesOfAssociation"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      Memorandum & Articles of Association
+    </label>
+    <input
+      type="file"
+      name="memorandumArticlesOfAssociation"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+    />
+  </div> */}
+
+  {/* <div className="mb-8">
+    <label
+      htmlFor="certificateOfIncorporation"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      Certificate of Incorporation
+    </label>
+    <input
+      type="file"
+      name="certificateOfIncorporation"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+    />
+  </div> */}
+{/* 
+  <div className="mb-8">
+    <label
+      htmlFor="cacStatusReport"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      CAC Status Report
+    </label>
+    <input
+      type="file"
+      name="cacStatusReport"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+    />
+  </div> */}
+
+  {/* <div className="mb-8">
+    <label
+      htmlFor="ProofOfBusinessAddress"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      Proof of Business Address
+    </label>
+    <input
+      type="file"
+      name="ProofOfBusinessAddress"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+    />
+  </div> */}
+
+  {/* <div className="mb-8">
+    <label
+      htmlFor="idCard"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      Director Id Card
+    </label>
+    <input
+      type="file"
+      name="idCard"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+    />
+  </div> */}
+
+  {/* <div className="mb-8">
+    <label
+      htmlFor="nin"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      National ID Number (NIN)
+    </label>
+    <input
+      type="file"
+      name="nin"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+    />
+  </div> */}
+
+  {/* <div className="mb-8">
+    <label
+      htmlFor="companyLetter"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      Company Letter
+    </label>
+    <input
+      type="file"
+      name="companyLetter"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+    />
+  </div> */}
+
+  {/* <div className="mb-8">
+    <label
+      htmlFor="paymentMethod"
+      className="mb-3 block text-sm text-dark dark:text-white"
+    >
+      Payment Method
+    </label>
+    <select
+      name="paymentMethod"
+      className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+      required
+    >
+      <option value="perSubject">Per Subject</option>
+      <option value="perCourse">Per Course</option>
+      <option value="dynamic">Dynamic</option>
+    </select>
+  </div> */}
+
+
+  <div className="mb-8">
+              <label htmlFor="password" className="block text-base font-medium text-dark dark:text-white">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Your password"
+                className="w-full rounded-lg border border-stroke bg-transparent px-4 py-2 text-base font-medium text-body-color placeholder-text-body-color outline-none dark:border-stroke-dark dark:bg-dark dark:text-white dark:placeholder-text-body-color-dark focus:border-primary"
+                required
+              />
+            </div>
+
+            <div className="mb-8">
+              <label htmlFor="confirmPassword" className="block text-base font-medium text-dark dark:text-white">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm your password"
+                className="w-full rounded-lg border border-stroke bg-transparent px-4 py-2 text-base font-medium text-body-color placeholder-text-body-color outline-none dark:border-stroke-dark dark:bg-dark dark:text-white dark:placeholder-text-body-color-dark focus:border-primary"
+                required
+              />
+            </div>
+
+
+  <div className="mb-8">
+    <label
+      htmlFor="TCAgreement"
+      className="flex cursor-pointer select-none text-sm font-medium text-body-color"
+    >
+      <input
+        type="checkbox"
+        name="TCAgreement"
+        className="mr-2"
+        defaultChecked
+        required
+      />
+      I agree to the Terms and Conditions
+    </label>
+  </div>
+
+  <div className="mb-6">
+    <button className="shadow-submit dark:shadow-submit-dark flex w-full items-center justify-center rounded-sm bg-primary px-9 py-4 text-base font-medium text-white duration-300 hover:bg-primary/90">
+      Sign up
+    </button>
+  </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <p className="text-center text-base font-medium text-body-color">
                   Already using Startup?{" "}
                   <Link href="/signin" className="text-primary hover:underline">
