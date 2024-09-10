@@ -9,7 +9,7 @@ const checkIcon = (
 
 const AboutSectionOne = () => {
   const List = ({ text }) => (
-    <p className="mb-5 flex items-center text-lg font-medium text-body-color">
+    <p className="mb-5 flex items-center text-lg text-black dark:text-white font-semibold ">
       <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
         {checkIcon}
       </span>
@@ -24,8 +24,8 @@ const AboutSectionOne = () => {
           <div className="-mx-4 flex flex-wrap items-center">
             <div className="w-full px-4 lg:w-1/2">
               <SectionTitle
-                title="Crafted for Startup, SaaS and Business Sites."
-                paragraph="The main ‘thrust’ is to focus on educating attendees on how to best protect highly vulnerable business applications with interactive panel discussions and roundtables."
+                title="Crafted for Schools—Where Education Meets Innovation."
+                paragraph="Our goal is to help schools optimize educational management by offering comprehensive tools and solutions. Through interactive sessions and practical demonstrations, we enable educators to effectively manage lesson plans, assessments, attendance, and more."
                 mb="44px"
               />
 
@@ -35,16 +35,25 @@ const AboutSectionOne = () => {
               >
                 <div className="mx-[-12px] flex flex-wrap">
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Premium quality" />
-                    <List text="Tailwind CSS" />
-                    <List text="Use for lifetime" />
+                    <List text="Payment Management" />
+                    <List text="School activity setup" />
+                    <List text="Staff management" />
+                    <List text="Student Management" />
+                    <List text="Parent Communication" />
+                    <List text="Online Class Session Integration" />
+                    <List text="Task Management" />
                   </div>
 
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Next.js" />
-                    <List text="Rich documentation" />
-                    <List text="Developer friendly" />
+                    <List text="Lesson Note Management" />
+                    <List text="Lesson Plan Management" />
+                    <List text="Curriculum Management" />
+                    <List text="Behavioral Report" />
+                    <List text="Assessment Setup" />
+                    <List text="Assessment Report" />
+                    
                   </div>
+                  
                 </div>
               </div>
             </div>
