@@ -127,7 +127,7 @@ const SignupPage = () => {
       htmlFor="banner"
       className="mb-3 block text-sm text-dark dark:text-white"
     >
-      Banner
+      School Banner (cover photo)
     </label>
     <input
       type="file"
@@ -141,7 +141,7 @@ const SignupPage = () => {
       htmlFor="logo"
       className="mb-3 block text-sm text-dark dark:text-white"
     >
-     Logo
+     School Logo
     </label>
     <input
       type="file"
@@ -195,7 +195,7 @@ const SignupPage = () => {
     />
   </div> */}
 
-  {/* <div className="mb-8">
+  <div className="mb-8">
     <label
       htmlFor="certificateOfIncorporation"
       className="mb-3 block text-sm text-dark dark:text-white"
@@ -207,9 +207,9 @@ const SignupPage = () => {
       name="certificateOfIncorporation"
       className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
     />
-  </div> */}
-{/* 
-  <div className="mb-8">
+  </div>
+
+  {/* <div className="mb-8">
     <label
       htmlFor="cacStatusReport"
       className="mb-3 block text-sm text-dark dark:text-white"
@@ -223,7 +223,7 @@ const SignupPage = () => {
     />
   </div> */}
 
-  {/* <div className="mb-8">
+  <div className="mb-8">
     <label
       htmlFor="ProofOfBusinessAddress"
       className="mb-3 block text-sm text-dark dark:text-white"
@@ -235,7 +235,7 @@ const SignupPage = () => {
       name="ProofOfBusinessAddress"
       className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
     />
-  </div> */}
+  </div>
 
   {/* <div className="mb-8">
     <label
