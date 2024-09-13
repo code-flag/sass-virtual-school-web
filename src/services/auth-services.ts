@@ -26,6 +26,84 @@ const useAuth = () => {
     const email = params?.get("email")
     
 
+    //Sign-up
+    const SignUp = async (payload:LoginProps) => {
+        setIsLoading(true);
+        try {
+          const response = await axios.post(
+            `${BASE_URL}/super-admin/auth/login`,
+             payload
+            ,
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                  },
+            } 
+          
+          );
+          // setIsLoading(false)
+          if(response?.data?.statusCode === 200){
+            setIsLoading(true)
+
+            setToken(response?.data?.data?.jwt)
+            setUserId(response?.data?.data?.id)
+            setCookie("token", JSON.stringify(response?.data?.data?.jwt));
+            // localStorage.setItem("userId", response?.data?.data?.id );
+            // localStorage.setItem("token", response?.data?.data?.jwt );
+            
+            toast.success("Login was successfull!!", {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
+            
+            router?.push("/dashboard")
+          }
+          setIsLoading(false)
+          // console.log("res", response)
+      }
+
+      catch (error:any) {
+        if(error?.response?.status === 401){
+          toast.error(error?.response?.data?.message, {
+            position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+        } else {
+          toast.error("Sorry Network or Server Error has Occured, Please Try Again Later", {
+            position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+        }
+        // console.log("err", error)
+        setIsLoading(false);
+        
+        
+      } finally {
+        setIsLoading(false);
+      } 
+    }
+
+
+
+
     //Login
     const login = async (payload:LoginProps) => {
         setIsLoading(true);
@@ -328,6 +406,7 @@ const useAuth = () => {
       successModal,
       setSuccessModal,
       login, 
+      SignUp,
       forgotPassword, 
       verifyOtp,
       resetPassword
