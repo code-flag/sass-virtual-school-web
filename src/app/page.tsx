@@ -5,8 +5,11 @@ import Brands from "@/components/Brands";
 import ScrollUp from "@/components/Common/ScrollUp";
 import Contact from "@/components/Contact";
 import Features from "@/components/Features";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
+import ScrollToTop from "@/components/ScrollToTop";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
 import { Metadata } from "next";
@@ -20,6 +23,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+     <Header />
       <ScrollUp />
       <Hero />
       <Features />
@@ -31,6 +35,8 @@ export default function Home() {
       <Pricing />
       <Blog />
       <Contact />
+      <ScrollToTop />
+      <Footer />
     </>
   );
 }

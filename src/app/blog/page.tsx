@@ -1,6 +1,8 @@
 import SingleBlog from "@/components/Blog/SingleBlog";
 import blogData from "@/components/Blog/blogData";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 import { Metadata } from "next";
 
@@ -13,6 +15,7 @@ export const metadata: Metadata = {
 const Blog = () => {
   return (
     <>
+    <Header />
       <Breadcrumb
         pageName="Blog Grid"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
@@ -92,6 +95,7 @@ const Blog = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };

@@ -3,6 +3,8 @@ import TagButton from "@/components/Blog/TagButton";
 import Image from "next/image";
 
 import { Metadata } from "next";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Blog Details Page | Free Next.js Template for Startup and SaaS",
@@ -13,6 +15,7 @@ export const metadata: Metadata = {
 const BlogDetailsPage = () => {
   return (
     <>
+     <Header />
       <section className="pb-[120px] pt-[150px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
@@ -340,6 +343,7 @@ const BlogDetailsPage = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };

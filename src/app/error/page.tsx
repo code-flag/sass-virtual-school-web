@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 import { Metadata } from "next";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Error Page | Free Next.js Template for Startup and SaaS",
@@ -11,6 +13,7 @@ export const metadata: Metadata = {
 const ErrorPage = () => {
   return (
     <>
+    <Header />
       <section className="relative z-10 pb-16 pt-36 md:pb-20 lg:pb-28 lg:pt-[180px]">
         <div className="container">
           <div className="flex flex-wrap -mx-4">
@@ -531,6 +534,7 @@ const ErrorPage = () => {
           </svg>
         </div>
       </section>
+      <Footer />
     </>
   );
 };
