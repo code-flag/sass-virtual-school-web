@@ -11,16 +11,16 @@ const AboutSectionTwo = () => {
               data-wow-delay=".15s"
             >
               <Image
-                src="/images/about/about-image-2.svg"
+                src="/mission.jpg"
                 alt="about image"
                 fill
-                className="drop-shadow-three dark:hidden dark:drop-shadow-none"
+                className="drop-shadow-three dark:hidden dark:drop-shadow-none object-cover rounded-md"
               />
               <Image
-                src="/images/about/about-image-2-dark.svg"
+                src="/mission.jpg"
                 alt="about image"
                 fill
-                className="hidden drop-shadow-three dark:block dark:drop-shadow-none"
+                className="hidden drop-shadow-three dark:block dark:drop-shadow-none object-cover rounded-md"
               />
             </div>
           </div>
@@ -28,29 +28,33 @@ const AboutSectionTwo = () => {
             <div className="max-w-[470px]">
               <div className="mb-9">
                 <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                  Bug free code
+                  Our Mission
                 </h3>
                 <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                To revolutionize education management by providing user-friendly, efficient, and innovative software solutions that empower educators, streamline administrative tasks, and enhance student success.
                 </p>
               </div>
               <div className="mb-9">
                 <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                  Premier support
+                 Our Vission
                 </h3>
                 <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt.
+                To be the leading provider of education technology solutions, shaping the future of learning by fostering excellence in education management and empowering schools worldwide.
                 </p>
               </div>
               <div className="mb-1">
                 <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                  Next.js
+                  Our Values
                 </h3>
                 <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                  Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt
-                  consectetur adipiscing elit setim.
+                <ul>
+                  <li><strong>Innovation:</strong> We embrace creativity to drive progress.</li>
+                  <li><strong>Integrity:</strong> We act with honesty and transparency.</li>
+                  <li><strong>Excellence:</strong> We strive for the highest quality.</li>
+                  <li><strong>Collaboration:</strong> We succeed through teamwork.</li>
+                  <li><strong>Empowerment:</strong> We enable growth and achievement.</li>
+                </ul>
+
                 </p>
               </div>
             </div>

@@ -12,7 +12,7 @@ const Pricing = () => {
       <div className="container">
         <SectionTitle
           title="Simple and Affordable Pricing"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          paragraph="Our pricing plans are designed to fit any budget, offering all the essential features you need without breaking the bank. Get powerful tools at a price that works for your school."
           center
           width="665px"
         />
@@ -27,7 +27,7 @@ const Pricing = () => {
                   : "text-dark dark:text-white"
               } mr-4 cursor-pointer text-base font-semibold`}
             >
-              Monthly
+              Students
             </span>
             <div
               onClick={() => setIsMonthly(!isMonthly)}
@@ -52,17 +52,17 @@ const Pricing = () => {
                   : "pointer-events-none text-primary"
               } ml-4 cursor-pointer text-base font-semibold`}
             >
-              Yearly
+              Schools
             </span>
           </div>
         </div>
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           <PricingBox
-            packageName="Lite"
-            price={isMonthly ? "40" : "120"}
-            duration={isMonthly ? "mo" : "yr"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
+            packageName="Basic Plan"
+            price={isMonthly ? "1000" : "200,000"}
+            duration={isMonthly ? "Term" : "Term"}
+            subtitle="Access to essential study tools, limited storage, and basic support."
           >
             <OfferList text="All UI Components" status="active" />
             <OfferList text="Use with Unlimited Projects" status="active" />
@@ -72,10 +72,10 @@ const Pricing = () => {
             <OfferList text="Free Lifetime Updates" status="inactive" />
           </PricingBox>
           <PricingBox
-            packageName="Basic"
-            price={isMonthly ? "399" : "789"}
-            duration={isMonthly ? "mo" : "yr"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
+            packageName="Standard Plan"
+            price={isMonthly ? "5,000" : "500,000"}
+            duration={isMonthly ? "Term" : "Term"}
+            subtitle=" Includes all Basic Plan features plus additional resources, extended storage, and priority support"
           >
             <OfferList text="All UI Components" status="active" />
             <OfferList text="Use with Unlimited Projects" status="active" />
@@ -85,10 +85,10 @@ const Pricing = () => {
             <OfferList text="Free Lifetime Updates" status="inactive" />
           </PricingBox>
           <PricingBox
-            packageName="Plus"
-            price={isMonthly ? "589" : "999"}
-            duration={isMonthly ? "mo" : "yr"}
-            subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
+            packageName="Premium Plan"
+            price={isMonthly ? "9,000" : "900,000"}
+            duration={isMonthly ? "Term" : "Term"}
+            subtitle=" All Standard Plan features plus advanced tools, unlimited storage, and personalized support."
           >
             <OfferList text="All UI Components" status="active" />
             <OfferList text="Use with Unlimited Projects" status="active" />

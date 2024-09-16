@@ -14,7 +14,7 @@ const Video = () => {
       <div className="container">
         <SectionTitle
           title="We are ready to help"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          paragraph="We are committed to empowering educators and students with innovative tools to enhance learning. Whether you're managing student records, tracking performance, or simplifying administrative tasks, our platform is designed to make education management seamless and efficient. We're here to support you every step of the way."
           center
           mb="80px"
         />

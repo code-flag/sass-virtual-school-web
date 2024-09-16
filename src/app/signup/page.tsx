@@ -10,8 +10,6 @@ import { useRouter } from "next/navigation";
 import CustomInput from "@/components/reusables/CustomInput";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 // signup user schema
 const signUpSchema = yup.object({
@@ -47,11 +45,6 @@ const SignupPage = () => {
     resolver: yupResolver(signUpSchema),
     mode: "onChange",
   });
-
-
-  const handleSubdomainChange = (value: string) => {
-    setDomain(value); // Update the domain when the user types in the subdomain field
-  };
 
 
   const handleSignup = async (data: any) => {
