@@ -5,13 +5,6 @@ import { toast } from 'react-toastify';
 import { setCookie } from "cookies-next";
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-
-type LoginProps = {
-    email?: string;
-    password?: string;
-    phone?: string;
-  };
-
 const useAuth = () => {
    
     const BASE_URL = process.env.NEXT_PUBLIC_AUTH_URL;
@@ -27,11 +20,11 @@ const useAuth = () => {
     
 
     //Sign-up
-    const SignUp = async (payload:LoginProps) => {
+    const SignUp = async (payload:any) => {
         setIsLoading(true);
         try {
           const response = await axios.post(
-            `${BASE_URL}/super-admin/auth/login`,
+            `${BASE_URL}/school/create`,
              payload
             ,
             {
@@ -42,18 +35,16 @@ const useAuth = () => {
           
           );
           // setIsLoading(false)
-          if(response?.data?.statusCode === 200){
+          if(response?.data?.status === "success"){
             setIsLoading(true)
 
-            setToken(response?.data?.data?.jwt)
-            setUserId(response?.data?.data?.id)
-            setCookie("token", JSON.stringify(response?.data?.data?.jwt));
-            // localStorage.setItem("userId", response?.data?.data?.id );
-            // localStorage.setItem("token", response?.data?.data?.jwt );
+            // setToken(response?.data?.data?.jwt)
+            // setUserId(response?.data?.data?.id)
+            // setCookie("token", JSON.stringify(response?.data?.data?.jwt));
             
-            toast.success("Login was successfull!!", {
+            toast.success(response?.data?.message, {
               position: "top-right",
-              autoClose: 2000,
+              autoClose: 9000,
               hideProgressBar: false,
               closeOnClick: true,
               pauseOnHover: true,
@@ -62,168 +53,17 @@ const useAuth = () => {
               theme: "colored",
             });
             
-            router?.push("/dashboard")
+            // router?.push("/dashboard")
           }
           setIsLoading(false)
-          // console.log("res", response)
-      }
-
-      catch (error:any) {
-        if(error?.response?.status === 401){
-          toast.error(error?.response?.data?.message, {
-            position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          });
-        } else {
-          toast.error("Sorry Network or Server Error has Occured, Please Try Again Later", {
-            position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          });
-        }
-        // console.log("err", error)
-        setIsLoading(false);
-        
-        
-      } finally {
-        setIsLoading(false);
-      } 
-    }
-
-
-
-
-    //Login
-    const login = async (payload:LoginProps) => {
-        setIsLoading(true);
-        try {
-          const response = await axios.post(
-            `${BASE_URL}/super-admin/auth/login`,
-             payload
-            ,
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                  },
-            } 
-          
-          );
-          // setIsLoading(false)
-          if(response?.data?.statusCode === 200){
-            setIsLoading(true)
-
-            setToken(response?.data?.data?.jwt)
-            setUserId(response?.data?.data?.id)
-            setCookie("token", JSON.stringify(response?.data?.data?.jwt));
-            // localStorage.setItem("userId", response?.data?.data?.id );
-            // localStorage.setItem("token", response?.data?.data?.jwt );
-            
-            toast.success("Login was successfull!!", {
-              position: "top-right",
-              autoClose: 2000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-            
-            router?.push("/dashboard")
-          }
-          setIsLoading(false)
-          // console.log("res", response)
-      }
-
-      catch (error:any) {
-        if(error?.response?.status === 401){
-          toast.error(error?.response?.data?.message, {
-            position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          });
-        } else {
-          toast.error("Sorry Network or Server Error has Occured, Please Try Again Later", {
-            position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          });
-        }
-        // console.log("err", error)
-        setIsLoading(false);
-        
-        
-      } finally {
-        setIsLoading(false);
-      } 
-    }
-
-
-    //ForgotPassword
-    const forgotPassword = async (payload:LoginProps) => {
-        setIsLoading(true);
-        try {
-          const response = await axios.post(
-            `${BASE_URL}/super-admin/password/request-reset`,
-             payload
-            ,
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                  },
-            } 
-          
-          );
-          setIsLoading(false)
-          if(response?.data?.statusCode === 200){
-
-            localStorage.setItem("resetEmail", response?.data?.data?.email );
-
-            toast.success("Request for reset password was successfull!!", {
-              position: "top-right",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-
-            setTimeout(() => {
-              router?.push(`/verify-otp?email=${response?.data?.data?.email}&otp=${response?.data?.data?.resetCode}`)
-            }, 500);
-
-          }
           console.log("res", response)
       }
 
       catch (error:any) {
-        if(error?.response?.data?.statusCode === 400){
-          toast.error("Sorry there is no matching email on our database", {
+        if(error?.response?.data?.status === "error"){
+          toast.error(error?.response?.data?.error?.message, {
             position: "top-right",
-          autoClose: 3000,
+          autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -231,6 +71,7 @@ const useAuth = () => {
           progress: undefined,
           theme: "colored",
           });
+          console.log("err", error)
         } else {
           toast.error("Sorry Network or Server Error has Occured, Please Try Again Later", {
             position: "top-right",
@@ -254,148 +95,8 @@ const useAuth = () => {
 
 
 
-    //Verify OTP
-    const verifyOtp = async (payload:LoginProps) => {
-        setIsLoading(true);
-        try {
-          const response = await axios.post(
-            `${BASE_URL}/super-admin/password/verify-code`,
-             payload
-            ,
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                  },
-            } 
-          
-          );
-          setIsLoading(false)
-          if(response?.data?.statusCode === 200){
 
-            // localStorage.setItem("resetEmail", response?.data?.data?.email );
-
-            toast.success("OTP Verified successfull!!", {
-              position: "top-right",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-            
-            router?.push(`${url}?email=${email}&token=${response?.data?.data?.sessionToken}`)
-            setSuccess(true)
-          }
-          console.log("res", response)
-      }
-
-      catch (error:any) {
-        if(error?.response?.data?.statusCode === 400){
-          toast.error(error?.response?.data?.message, {
-            position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          });
-        } else {
-          toast.error("Sorry Network or Server Error has Occured, Please Try Again Later", {
-            position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          });
-        }
-        console.log("err", error)
-        setIsLoading(false);
-        
-        
-      } finally {
-        setIsLoading(false);
-      } 
-    }
-
-
-
-    //Reset Password
-    const resetPassword = async (payload:LoginProps) => {
-        setIsLoading(true);
-        try {
-          const response = await axios.post(
-            `${BASE_URL}/super-admin/password/reset`,
-             payload
-            ,
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                  },
-            } 
-          
-          );
-          setIsLoading(false)
-          if(response?.data?.statusCode === 200){
-
-            // localStorage.setItem("resetEmail", response?.data?.data?.email );
-
-            toast.success("Password Reset successfull!!", {
-              position: "top-right",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-            setSuccessModal(true)
-            router?.push(`${url}?email=${email}`)
-            setSuccess(false)
-
-          }
-          console.log("res", response)
-      }
-
-      catch (error:any) {
-        if(error?.response?.data?.statusCode === 400){
-          toast.error("Could not reset password", {
-            position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          });
-        } else {
-          toast.error("Sorry Network or Server Error has Occured, Please Try Again Later", {
-            position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          });
-        }
-        console.log("err", error)
-        setIsLoading(false);
-        
-        
-      } finally {
-        setIsLoading(false);
-      } 
-    }
+   
 
 
 
@@ -405,11 +106,7 @@ const useAuth = () => {
       setSuccess,
       successModal,
       setSuccessModal,
-      login, 
       SignUp,
-      forgotPassword, 
-      verifyOtp,
-      resetPassword
     };
 }
 

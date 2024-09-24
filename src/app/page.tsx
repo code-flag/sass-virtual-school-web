@@ -36,7 +36,7 @@ export default function Home() {
       {/* <Blog /> */}
       <Contact />
       <ScrollToTop />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
