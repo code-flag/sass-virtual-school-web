@@ -2,21 +2,17 @@ import { useAuthStore } from '@/store';
 import axios from 'axios';
 import  { useState } from 'react'
 import { toast } from 'react-toastify';
-import { setCookie } from "cookies-next";
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
 
 const useAuth = () => {
    
     const BASE_URL = process.env.NEXT_PUBLIC_AUTH_URL;
 
     const [isLoading, setIsLoading] = useState(false);
-    const router = useRouter()
-    const params = useSearchParams()
-    const url = usePathname()
+ 
 
-    const { setToken, setUserId, success, setSuccess, successModal, setSuccessModal } = useAuthStore();
+    const {  success, setSuccess, successModal, setSuccessModal } = useAuthStore();
 
-    const email = params?.get("email")
     
 
     //Sign-up
