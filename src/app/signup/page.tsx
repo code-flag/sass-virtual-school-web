@@ -8,9 +8,11 @@ import * as yup from "yup";
 import { useRouter } from "next/navigation";
 import CustomInput from "@/components/reusables/CustomInput";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "@/services/auth-services";
 import CustomSelect from "@/components/reusables/CustomSelect";
+
+import { Country, State, City }  from 'country-state-city';
 
 
 const stateOptionsData = [
@@ -74,6 +76,24 @@ const genderData = [
 ];
 
 
+const countryAdapterFunction = (data:any) => {
+  return data?.map(item => ({
+    value: item?.name,
+    label: item?.name,
+    isoCode:item?.isoCode,
+    phoneCode:item?.phonecode
+  }));
+};
+const stateAdapterFunction = (data:any) => {
+  return data?.map(item => ({
+    value: item?.name,
+    label: item?.name,
+    isoCode:item?.isoCode,
+    countryCode:item?.countryCode
+  }));
+};
+
+
 //Registration schema validation
 const signUpSchema = yup.object({
   SchoolName: yup.string().required("Please Enter your School Name"),
@@ -86,7 +106,7 @@ const signUpSchema = yup.object({
   Subdomain: yup.string().required("Please enter a unique subdomain"),
   SchoolSize: yup.string().required("Please enter  School Size"),
   Subscription: yup.string().required("Please select Subscription Type"),
-  Country: yup.string().required("Please enter school country"),
+  // Country: yup.string().required("Please enter school country"),
   State: yup.string().required("Please enter school state"),
   
   FirstName: yup.string().required("Please Enter your First Name"),
@@ -95,7 +115,7 @@ const signUpSchema = yup.object({
   CreatorEmail: yup.string().required().email("Please Enter your valid email"),
   Gender: yup.string().required("Please Enter your Gender"),
   Password: yup.string().required("Please enter a password"),
-  CreatorCountry: yup.string().required("Please enter your country"),
+  // CreatorCountry: yup.string().required("Please enter your country"),
   CreatorState: yup.string().required("Please enter your state"),
   CreatorAddress: yup.string().required("Please enter your address"),
   CreatorCountryCode: yup.string().required("Please enter your country code"),
@@ -104,10 +124,38 @@ const signUpSchema = yup.object({
 
 const SignupPage = () => {
   const [domain, setDomain] = useState("")
+  const [country, setCountry] = useState(Country.getAllCountries())
+  const [creatorCountry, setCreatorCountry] = useState(Country.getAllCountries())
+  const [countryCode, setCountryCode] = useState("")
+  const [selectedCountry, setSelectedCountry] = useState("AF")
+  const [state, setState] = useState(State.getStatesOfCountry(selectedCountry))
+  const [creatorState, setCreatorState] = useState(State.getStatesOfCountry(selectedCountry))
   const [step, setStep] = useState(1)
   const {isLoading, SignUp} = useAuth()
   const example = "myschoolsubdomain"
   // console.log("Domain", domain)
+  
+  useEffect(() => {
+    // setCountryCode(selectedCountryData?.isoCode)
+    setCountry(Country.getAllCountries())
+    // setState(State.getStatesOfCountry(countryCode))
+    // setCountryCode(country?.)
+  }, [selectedCountry])
+  
+  const selectedCountryData = countryAdapterFunction(country).find((d) => d.isoCode === selectedCountry);
+  
+  useEffect(()=>{
+    setCountryCode(selectedCountryData?.isoCode)
+  },[countryCode, selectedCountry])
+
+  useEffect(()=>{
+       setState(State.getStatesOfCountry(selectedCountry))
+  },[selectedCountry, selectedCountry])
+
+  // console.log("Country", countryAdapterFunction(country)[0])
+  // console.log("STATE", state)
+  // console.log("selectedCountry", selectedCountry)
+  // console.log("selectedCountryDDDDDDD", selectedCountryData)
 
 
   const {
@@ -115,6 +163,7 @@ const SignupPage = () => {
     register,
     formState: { errors },
     reset,
+  
   } = useForm({
     resolver: yupResolver(signUpSchema),
     mode: "onChange",
@@ -128,6 +177,7 @@ const SignupPage = () => {
   }
 
 
+
   const handleSignup = async (data: any) => {
     const requestData = {
       name: data.SchoolName,
@@ -135,7 +185,7 @@ const SignupPage = () => {
       countryCode: data.CountryCode,
       email: data.SchoolEmail,
       address: data.Address,
-      country: data.Country,
+      country: selectedCountryData?.name,
       state: data.State,
       schoolSize: data?.SchoolSize, // Example value
       subdomain: domain + ".edumacro.com" ,
@@ -150,7 +200,7 @@ const SignupPage = () => {
         countryCode: data.CreatorCountryCode,
         email: data.CreatorEmail,
         address: data.CreatorAddress,
-        country: data.CreatorCountry,
+        country: selectedCountryData?.name,
         state: data.CreatorState,
         password: data.Password,
         multiFactorAuth: true,
@@ -188,18 +238,26 @@ const SignupPage = () => {
                      errors={errors} 
                      domain={domain} 
                      setDomain={setDomain} 
-                     stateOptionsData={stateOptionsData}
                      plantypeData={plantypeData}
                      schoolSizeData={schoolSizeData}
-                     example={example} />
+                     example={example}
+                     setSelectedCountry={setSelectedCountry}
+                     selectedCountryData={selectedCountryData}
+                     stateOptionsData={stateAdapterFunction(state)}
+                     countryOptionsData={countryAdapterFunction(country)}
+                     />
                  }
                  {
                   step === 2 && 
                    <Step2 
                      register={register} 
                      errors={errors} 
-                     stateOptionsData={stateOptionsData}
+                    //  stateOptionsData={stateOptionsData}
                      genderData={genderData}
+                     setSelectedCountry={setSelectedCountry}
+                     selectedCountryData={selectedCountryData}
+                     stateOptionsData={stateAdapterFunction(state)}
+                     countryOptionsData={countryAdapterFunction(country)}
                       />
                      
                  }
@@ -262,7 +320,7 @@ export default SignupPage;
 
 
 
- const Step1 = ({register, errors, setDomain, domain, example, stateOptionsData, plantypeData, schoolSizeData}:any) => {
+ const Step1 = ({register, errors, setDomain, domain, example, stateOptionsData, plantypeData, schoolSizeData, countryOptionsData, setSelectedCountry, selectedCountryData}:any) => {
   return(
     <>
        <div className="mb-8">
@@ -311,23 +369,6 @@ export default SignupPage;
                       id={"phone"}
                       register={{ ...register("Phone") }}
                       errorMessage={errors?.Phone?.message}
-                    />
-                  </div>
-
-
-                  <div className="mb-8">
-                    <label
-                      htmlFor="countryCode"
-                      className="mb-3 block text-sm text-dark dark:text-white"
-                    >
-                      Country Code
-                    </label>
-                    <CustomInput 
-                      type={"text"} 
-                      placeholder={"Enter your country code"} 
-                      id={"countryCode"}
-                      register={{ ...register("CountryCode") }}
-                      errorMessage={errors?.CountryCode?.message}
                     />
                   </div>
 
@@ -389,14 +430,54 @@ export default SignupPage;
                     >
                       Country
                     </label>
+                   
+                     {/* <CustomSelect
+                       options={countryOptionsData}
+                       id='country'
+                      //  placeholder='Select New Role'
+                       register={{ ...register("Country") }}
+                       errorMessage={errors?.Country?.message}
+                       func={setSelectedCountry}
+                     /> */}
+                       <select
+                        id={"country"}
+                        className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+                        onChange={(e) => {
+                          console.log("ssssss", e.target.value); // Log the selected value
+                          setSelectedCountry?.(e.target.value);
+                        }}
+                        // { ...register("Country") }
+                      >
+                        {countryOptionsData?.map((option) => (
+                          <option key={option.value} value={option.isoCode}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </select>
+                      {/* {errors && (
+                      <span className="px-[15px] text-red-600 py-0.5 pl-4 text-xs md:text-sm">
+                        {errors?.Country?.message}
+                      </span>
+                      )} */}
+                  </div>
+
+                  <div className="mb-8">
+                    <label
+                      htmlFor="countryCode"
+                      className="mb-3 block text-sm text-dark dark:text-white"
+                    >
+                      Country Code
+                    </label>
                     <CustomInput 
                       type={"text"} 
-                      placeholder={"Enter your country"} 
-                      id={"country"}
-                      register={{ ...register("Country") }}
-                      errorMessage={errors?.Country?.message}
+                      defaultValue={selectedCountryData?.isoCode}
+                      placeholder={"Enter your country code"} 
+                      id={"countryCode"}
+                      register={{ ...register("CountryCode") }}
+                      errorMessage={errors?.CountryCode?.message}
                     />
                   </div>
+
 
                   <div className="mb-8">
                     <label
@@ -453,7 +534,7 @@ export default SignupPage;
 
 
 
- const Step2 = ({register, errors, stateOptionsData,  genderData}:any) => {
+ const Step2 = ({register, errors, stateOptionsData,  genderData, countryOptionsData, setSelectedCountry, selectedCountryData}:any) => {
   return(
     <>
 
@@ -539,6 +620,37 @@ export default SignupPage;
 
                   <div className="mb-8">
                     <label
+                      htmlFor="country"
+                      className="mb-3 block text-sm text-dark dark:text-white"
+                    >
+                      Country
+                    </label>
+                    {/* <CustomInput 
+                      type={"text"} 
+                      placeholder={"Enter your country"} 
+                      id={"creatorCountry"}
+                      register={{ ...register("CreatorCountry") }}
+                      errorMessage={errors?.CreatorCountry?.message}
+                    /> */}
+                      <select
+                        id={"creatorCountry"}
+                        className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none transition-all duration-300 focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+                        onChange={(e) => {
+                          console.log("ssssss", e.target.value); // Log the selected value
+                          setSelectedCountry?.(e.target.value);
+                        }}
+                        // { ...register("Country") }
+                      >
+                        {countryOptionsData?.map((option) => (
+                          <option key={option.value} value={option.isoCode}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </select>
+                  </div>
+
+                  <div className="mb-8">
+                    <label
                       htmlFor="countryCode"
                       className="mb-3 block text-sm text-dark dark:text-white"
                     >
@@ -546,6 +658,7 @@ export default SignupPage;
                     </label>
                     <CustomInput 
                       type={"text"} 
+                      defaultValue={selectedCountryData?.isoCode}
                       placeholder={"Enter your country code"} 
                       id={"creatorCountryCode"}
                       register={{ ...register("CreatorCountryCode") }}
@@ -553,21 +666,6 @@ export default SignupPage;
                     />
                   </div>
 
-                  <div className="mb-8">
-                    <label
-                      htmlFor="country"
-                      className="mb-3 block text-sm text-dark dark:text-white"
-                    >
-                      Country
-                    </label>
-                    <CustomInput 
-                      type={"text"} 
-                      placeholder={"Enter your country"} 
-                      id={"creatorCountry"}
-                      register={{ ...register("CreatorCountry") }}
-                      errorMessage={errors?.CreatorCountry?.message}
-                    />
-                  </div>
 
                   <div className="mb-8">
                     <label
