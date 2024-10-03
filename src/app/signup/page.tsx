@@ -470,7 +470,7 @@ export default SignupPage;
                     </label>
                     <CustomInput 
                       type={"text"} 
-                      defaultValue={selectedCountryData?.isoCode}
+                      defaultValue={selectedCountryData?.phoneCode}
                       placeholder={"Enter your country code"} 
                       id={"countryCode"}
                       register={{ ...register("CountryCode") }}

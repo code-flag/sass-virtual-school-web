@@ -15,7 +15,7 @@ const Hero = () => {
                   School management platform for all schools
                 </h1>
                 <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
-                School Maestro is a comprehensive SaaS platform designed to streamline school operations, enhance communication, 
+                Edumacro is a comprehensive SaaS platform designed to streamline school operations, enhance communication, 
                 and improve efficiency. With features for staff, students, and parents, 
                 we offer a comprehensive solution for managing everything from attendance and grading to messaging
                  and payments. Built with cutting-edge technology, our platform is designed to make school administration a breeze.

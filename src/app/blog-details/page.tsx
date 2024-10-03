@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const BlogDetailsPage = () => {
   return (
     <>
-     <Header />
+     {/* <Header /> */}
       <section className="pb-[120px] pt-[150px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
@@ -343,7 +343,7 @@ const BlogDetailsPage = () => {
           </div>
         </div>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

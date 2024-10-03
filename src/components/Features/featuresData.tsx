@@ -14,7 +14,7 @@ const featuresData: Feature[] = [
     ),
     title: "Crafted for Schools",
     paragraph:
-      "Education is more than just a classroom. It’s about seamless collaboration between teachers, students, and parents. With School Maestro, we empower schools to streamline and simplify daily tasks, ensuring that educators focus on what matters most – student success.",
+      "Education is more than just a classroom. It’s about seamless collaboration between teachers, students, and parents. With Edumacro, we empower schools to streamline and simplify daily tasks, ensuring that educators focus on what matters most – student success.",
   },
   {
     id: 1,
@@ -29,7 +29,7 @@ const featuresData: Feature[] = [
     ),
     title: "High-quality Design",
     paragraph:
-      "At School Maestro, we believe that technology should enhance education, not complicate it. Our user-friendly interface ensures that teachers, administrators, and parents can collaborate smoothly without the hassle of complicated systems. ",
+      "At Edumacro, we believe that technology should enhance education, not complicate it. Our user-friendly interface ensures that teachers, administrators, and parents can collaborate smoothly without the hassle of complicated systems. ",
   },
   // {
   //   id: 1,
@@ -89,7 +89,7 @@ const featuresData: Feature[] = [
     ),
     title: "Free Setup",
     paragraph:
-      "Getting started on School Maestro is easy and completely free! We offer free setup, so your school can quickly begin using the platform without any upfront costs. Let us handle the technicalities while you focus on delivering outstanding education.",
+      "Getting started on Edumacro is easy and completely free! We offer free setup, so your school can quickly begin using the platform without any upfront costs. Let us handle the technicalities while you focus on delivering outstanding education.",
   },
 ];
 export default featuresData;

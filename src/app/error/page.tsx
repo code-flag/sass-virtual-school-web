@@ -534,7 +534,7 @@ const ErrorPage = () => {
           </svg>
         </div>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
