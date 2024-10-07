@@ -31,7 +31,7 @@ const Footer = () => {
                 </p>
                 <div className="flex items-center">
                   <a
-                    href="/"
+                    href="https://www.instagram.com/edumacrohq/"
                     aria-label="social-link"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -51,7 +51,7 @@ const Footer = () => {
                     </svg>
                   </a>
                   <a
-                    href="/"
+                    href="https://x.com/@edumacrohq"
                     aria-label="social-link"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -73,7 +73,7 @@ const Footer = () => {
                     </svg>
                   </a>
                   <a
-                    href="/"
+                    href="https://www.instagram.com/edumacrohq/"
                     aria-label="social-link"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -89,7 +89,7 @@ const Footer = () => {
                     </svg>
                   </a>
                   <a
-                    href="/"
+                    href="https://x.com/@edumacrohq"
                     aria-label="social-link"
                     target="_blank"
                     rel="noopener noreferrer"
