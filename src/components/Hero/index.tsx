@@ -15,10 +15,7 @@ const Hero = () => {
                   School management platform for all schools
                 </h1>
                 <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
-                Edumacro is a comprehensive SaaS platform designed to streamline school operations, enhance communication, 
-                and improve efficiency. With features for staff, students, and parents, 
-                we offer a comprehensive solution for managing everything from attendance and grading to messaging
-                 and payments. Built with cutting-edge technology, our platform is designed to make school administration a breeze.
+                Edumacro is an AI-powered SaaS platform designed to simplify school operations, enhance learning, and boost communication. Students can dive deeper into subjects and engage in group discussions, while staff can manage lesson plans, notes, and guide students with class recaps and questions. The platform also streamlines attendance, grading, messaging, and payments, offering a comprehensive solution for efficient school management.
                 </p>
                 <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                   <Link

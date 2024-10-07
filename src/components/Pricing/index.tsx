@@ -5,7 +5,7 @@ import OfferList from "./OfferList";
 import PricingBox from "./PricingBox";
 
 const Pricing = () => {
-  const [isMonthly, setIsMonthly] = useState(true);
+  const [isStudent, setIsStudent] = useState(true);
 
   return (
     <section id="pricing" className="relative z-10 py-16 md:py-20 lg:py-28">
@@ -20,9 +20,9 @@ const Pricing = () => {
         <div className="w-full">
           <div className="mb-8 flex justify-center md:mb-12 lg:mb-16">
             <span
-              onClick={() => setIsMonthly(true)}
+              onClick={() => setIsStudent(true)}
               className={`${
-                isMonthly
+                isStudent
                   ? "pointer-events-none text-primary"
                   : "text-dark dark:text-white"
               } mr-4 cursor-pointer text-base font-semibold`}
@@ -30,14 +30,14 @@ const Pricing = () => {
               Students
             </span>
             <div
-              onClick={() => setIsMonthly(!isMonthly)}
+              onClick={() => setIsStudent(!isStudent)}
               className="flex cursor-pointer items-center"
             >
               <div className="relative">
                 <div className="h-5 w-14 rounded-full bg-[#1D2144] shadow-inner"></div>
                 <div
                   className={`${
-                    isMonthly ? "" : "translate-x-full"
+                    isStudent ? "" : "translate-x-full"
                   } shadow-switch-1 absolute left-0 top-[-4px] flex h-7 w-7 items-center justify-center rounded-full bg-primary transition`}
                 >
                   <span className="active h-4 w-4 rounded-full bg-white"></span>
@@ -45,9 +45,9 @@ const Pricing = () => {
               </div>
             </div>
             <span
-              onClick={() => setIsMonthly(false)}
+              onClick={() => setIsStudent(false)}
               className={`${
-                isMonthly
+                isStudent
                   ? "text-dark dark:text-white"
                   : "pointer-events-none text-primary"
               } ml-4 cursor-pointer text-base font-semibold`}
@@ -59,43 +59,234 @@ const Pricing = () => {
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           <PricingBox
-            packageName="Basic Plan"
-            price={isMonthly ? "1000" : "200,000"}
-            duration={isMonthly ? "Term" : "Term"}
-            subtitle="Access to essential study tools, limited storage, and basic support."
+            packageName="Starter Plan"
+            price={isStudent ? "1000" : "0.00"}
+            duration={isStudent ? "Term" : "Term"}
+            subtitle="Access to essential study tools, limited features, and basic support."
           >
-            <OfferList text="All UI Components" status="active" />
-            <OfferList text="Use with Unlimited Projects" status="active" />
-            <OfferList text="Commercial Use" status="active" />
-            <OfferList text="Email Support" status="active" />
-            <OfferList text="Lifetime Access" status="inactive" />
-            <OfferList text="Free Lifetime Updates" status="inactive" />
+            {isStudent ? (
+              <>
+                <OfferList
+                  text="Integrated Student Dashboard"
+                  status="active"
+                />
+                <OfferList text="Integrated Parent Dashboard" status="active" />
+                <OfferList text="Payment tracking" status="active" />
+                <OfferList text="Access to CBT" status="active" />
+                <OfferList text="Access to live class" status="active" />
+              </>
+            ) : (
+              <>
+               <OfferList text="Integrated Admin Dashboard" status="active" />
+                <OfferList
+                  text="Integrated Teacher Dashboard"
+                  status="active"
+                />
+                <OfferList text="Complete school setup " status="active" />
+                <OfferList text="Teachers Enrolment " status="active" />
+                <OfferList text="Student enrollment " status="active" />
+                <OfferList
+                  text="Parent enrollment and linkup "
+                  status="active"
+                />
+                <OfferList
+                  text="Custom Live class integration "
+                  status="active"
+                />
+                <OfferList text="CBT Assessment Setup" status="active" />
+                <OfferList text="Grade metric setup" status="active" />
+                <OfferList text="School time table" status="active" />
+                <OfferList text="Class time table" status="active" />
+                <OfferList text="School Fees payment" status="active" />
+                <OfferList text="Behavioural Assessment Report" status="active" />
+                <OfferList text="Student Progress Reports" status="active" />
+                <OfferList text="Lesson Plan Management" status="active" />
+                <OfferList text="Lesson Note Management" status="active" />
+                <OfferList text="Lessons Tracking" status="active" />
+              </>
+            )}
           </PricingBox>
           <PricingBox
             packageName="Standard Plan"
-            price={isMonthly ? "5,000" : "500,000"}
-            duration={isMonthly ? "Term" : "Term"}
+            price={isStudent ? "2,000" : "50,000"}
+            duration={isStudent ? "Term" : "Term"}
             subtitle=" Includes all Basic Plan features plus additional resources, extended storage, and priority support"
           >
-            <OfferList text="All UI Components" status="active" />
-            <OfferList text="Use with Unlimited Projects" status="active" />
-            <OfferList text="Commercial Use" status="active" />
-            <OfferList text="Email Support" status="active" />
-            <OfferList text="Lifetime Access" status="active" />
-            <OfferList text="Free Lifetime Updates" status="inactive" />
+            {isStudent ? (
+              <>
+                <OfferList
+                  text="Integrated Student Dashboard"
+                  status="active"
+                />
+                <OfferList text="Integrated Parent Dashboard" status="active" />
+                <OfferList text="Parent school communication" status="active" />
+                <OfferList text="Payment tracking" status="active" />
+                <OfferList text="Access to CBT" status="active" />
+                <OfferList text="Access to live class" status="active" />
+                <OfferList text="Accessment Record" status="active" />
+                <OfferList text="Attendance record" status="active" />
+                {/* <OfferList text="Access to CBT" status="active" /> */}
+                <OfferList
+                  text="Criteria-reference performance chart"
+                  status="active"
+                />
+                <OfferList text="Behavioral performance" status="active" />
+                <OfferList text="Formative performance chart" status="active" />
+                <OfferList text="Sumative performance chart" status="active" />
+              </>
+            ) : (
+              <>
+                <OfferList text="Integrated Admin Dashboard" status="active" />
+                <OfferList
+                  text="Integrated Teacher Dashboard"
+                  status="active"
+                />
+                <OfferList text="Complete school setup " status="active" />
+                <OfferList text="Teachers Enrolment " status="active" />
+                <OfferList text="Student enrollment " status="active" />
+                <OfferList
+                  text="Parent enrollment and linkup "
+                  status="active"
+                />
+                <OfferList
+                  text="Custom Live class integration "
+                  status="active"
+                />
+                <OfferList text="CBT Assessment Setup" status="active" />
+                <OfferList text="Grade metric setup" status="active" />
+                <OfferList text="School time table" status="active" />
+                <OfferList text="Class time table" status="active" />
+                <OfferList text="School Fees payment" status="active" />
+                <OfferList text="Behavioural Assessment Report" status="active" />
+                <OfferList text="Student Progress Reports" status="active" />
+                <OfferList text="Lesson Plan Management" status="active" />
+                <OfferList text="Lesson Note Management" status="active" />
+                <OfferList text="Lessons Tracking" status="active" />
+                <OfferList text="In app Messenger" status="active" />
+                <OfferList text="Time table analysis" status="active" />
+                <OfferList text="Exam script analysis" status="active" />
+                <OfferList
+                  text="Students' Performance Analysis"
+                  status="active"
+                />
+                <OfferList
+                  text="School Fees Payment Analysis"
+                  status="active"
+                />
+                <OfferList text="Subject Attendance" status="active" />
+                <OfferList text="Class Attendance" status="active" />
+                <OfferList
+                  text="Attendance Report & Analysis"
+                  status="active"
+                />
+                <OfferList text="Event manager" status="active" />
+                <OfferList text="Todo Manager" status="active" />
+                <OfferList text="Active CBT Assessment" status="active" />
+              </>
+            )}
           </PricingBox>
           <PricingBox
             packageName="Premium Plan"
-            price={isMonthly ? "9,000" : "900,000"}
-            duration={isMonthly ? "Term" : "Term"}
+            price={isStudent ? "20,000" : "500,000"}
+            duration={isStudent ? "Term" : "Term"}
             subtitle=" All Standard Plan features plus advanced tools, unlimited storage, and personalized support."
           >
-            <OfferList text="All UI Components" status="active" />
-            <OfferList text="Use with Unlimited Projects" status="active" />
-            <OfferList text="Commercial Use" status="active" />
-            <OfferList text="Email Support" status="active" />
-            <OfferList text="Lifetime Access" status="active" />
-            <OfferList text="Free Lifetime Updates" status="active" />
+            {isStudent ? (
+              <>
+                <OfferList text="Ai lesson assistant" status="active" />
+                <OfferList text="Ai group discusion" status="active" />
+                <OfferList text="Ai test and exam simulation" status="active" />
+                <OfferList
+                  text="Integrated Student Dashboard"
+                  status="active"
+                />
+                <OfferList text="Integrated Parent Dashboard" status="active" />
+                <OfferList text="Parent school communication" status="active" />
+                <OfferList text="Payment tracking" status="active" />
+                <OfferList text="Access to CBT" status="active" />
+                <OfferList text="Behavioral performance" status="active" />
+                <OfferList text="Attendance record" status="active" />
+                <OfferList
+                  text="Criteria-reference performance chart"
+                  status="active"
+                />
+                <OfferList
+                  text="Norn-reference performance chart"
+                  status="active"
+                />
+                <OfferList text="Formative performance chat" status="active" />
+                <OfferList text="IpSative performance chart" status="active" />
+                <OfferList text="Sumative performance chart" status="active" />
+                <OfferList
+                  text="Cumulative performance chart"
+                  status="active"
+                />
+                <OfferList text="Task Manager" status="active" />
+                <OfferList text="Accessment Record" status="active" />
+                <OfferList text="Access to live class" status="active" />
+              </>
+            ) : (
+              <>
+                 <OfferList text="Integrated Admin Dashboard" status="active" />
+                <OfferList
+                  text="Integrated Teacher Dashboard"
+                  status="active"
+                />
+                <OfferList text="Complete school setup " status="active" />
+                <OfferList text="Teachers Enrolment " status="active" />
+                <OfferList text="Student enrollment " status="active" />
+                <OfferList
+                  text="Parent enrollment and linkup "
+                  status="active"
+                />
+                <OfferList
+                  text="Custom Live class integration "
+                  status="active"
+                />
+                <OfferList text="CBT Assessment Setup" status="active" />
+                <OfferList text="Grade metric setup" status="active" />
+                <OfferList text="School time table" status="active" />
+                <OfferList text="Class time table" status="active" />
+                <OfferList text="School Fees payment" status="active" />
+                <OfferList text="Behavioural Assessment Report" status="active" />
+                <OfferList text="Student Progress Reports" status="active" />
+                <OfferList text="Lesson Plan Management" status="active" />
+                <OfferList text="Lesson Note Management" status="active" />
+                <OfferList text="Lessons Tracking" status="active" />
+                <OfferList text="In app Messenger" status="active" />
+                <OfferList text="Time table analysis" status="active" />
+                <OfferList text="Exam script analysis" status="active" />
+                <OfferList
+                  text="Students' Performance Analysis"
+                  status="active"
+                />
+                <OfferList
+                  text="School Fees Payment Analysis"
+                  status="active"
+                />
+                <OfferList text="Subject Attendance" status="active" />
+                <OfferList text="Class Attendance" status="active" />
+                <OfferList
+                  text="Attendance Report & Analysis"
+                  status="active"
+                />
+                <OfferList text="Event manager" status="active" />
+                <OfferList text="Todo Manager" status="active" />
+                <OfferList text="Active CBT Assessment" status="active" />
+                <OfferList
+                  text="Integrated Student Dashboard"
+                  status="active"
+                />
+                <OfferList
+                  text="In App live class inegration"
+                  status="active"
+                />
+                <OfferList text="Ai lesson planner" status="active" />
+                <OfferList text="Ai lesson assitant" status="active" />
+                <OfferList text="Ai Assessment Simulation" status="active" />
+                <OfferList text="Task Manager" status="active" />
+              </>
+            )}
           </PricingBox>
         </div>
       </div>
