@@ -188,7 +188,7 @@ const SignupPage = () => {
       country: selectedCountryData?.name,
       state: data.State,
       schoolSize: data?.SchoolSize, // Example value
-      subdomain: domain + ".edumacro.com" ,
+      subdomain: domain,
       altMobile: data.Mobile,
       subscription: data?.Subscription, // Example value
       multiFactorAuth: true, // Example value
