@@ -11,10 +11,10 @@ const Pricing = () => {
   const { isNigeria, error } = useIsNigeria();
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return alert(error);
   }
 
-  console.log("NIGGGGG", isNigeria)
+  // console.log("NIGGGGG", isNigeria)
 
   return (
     <section id="pricing" className="relative z-10 py-16 md:py-20 lg:py-28">
