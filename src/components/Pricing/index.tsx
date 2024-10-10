@@ -3,9 +3,18 @@ import { useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
 import OfferList from "./OfferList";
 import PricingBox from "./PricingBox";
+import useIsNigeria from "../hooks/useIsNigeria";
 
 const Pricing = () => {
   const [isStudent, setIsStudent] = useState(true);
+
+  const { isNigeria, error } = useIsNigeria();
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
+  console.log("NIGGGGG", isNigeria)
 
   return (
     <section id="pricing" className="relative z-10 py-16 md:py-20 lg:py-28">
@@ -60,7 +69,10 @@ const Pricing = () => {
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           <PricingBox
             packageName="Starter Plan"
-            price={isStudent ? "1000" : "0.00"}
+            price={isNigeria ? 
+              isStudent ? "₦1000" : "₦0.00" : 
+              isStudent ? "$10.00" : "$0.00"
+            }
             duration={isStudent ? "Term" : "Term"}
             subtitle="Access to essential study tools, limited features, and basic support."
           >
@@ -108,7 +120,11 @@ const Pricing = () => {
           </PricingBox>
           <PricingBox
             packageName="Standard Plan"
-            price={isStudent ? "2,000" : "50,000"}
+            price={
+              isNigeria ?
+              isStudent ? "₦2,000" : "₦50,000" :
+              isStudent ? "$50.00" : "$200.00"
+            }
             duration={isStudent ? "Term" : "Term"}
             subtitle=" Includes all Basic Plan features plus additional resources, extended storage, and priority support"
           >
@@ -187,7 +203,11 @@ const Pricing = () => {
           </PricingBox>
           <PricingBox
             packageName="Premium Plan"
-            price={isStudent ? "20,000" : "500,000"}
+            price={
+              isNigeria ? 
+              isStudent ? "₦20,000" : "₦500,000" :
+              isStudent ? "$100.00" : "$500.00"
+            }
             duration={isStudent ? "Term" : "Term"}
             subtitle=" All Standard Plan features plus advanced tools, unlimited storage, and personalized support."
           >
