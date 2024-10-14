@@ -71,7 +71,7 @@ const Pricing = () => {
             packageName="Starter Plan"
             price={isNigeria ? 
               isStudent ? "₦1000" : "₦0.00" : 
-              isStudent ? "$10.00" : "$0.00"
+              isStudent ? "$2.00" : "$0.00"
             }
             duration={isStudent ? "Term" : "Term"}
             subtitle="Access to essential study tools, limited features, and basic support."
@@ -123,7 +123,7 @@ const Pricing = () => {
             price={
               isNigeria ?
               isStudent ? "₦2,000" : "₦50,000" :
-              isStudent ? "$50.00" : "$200.00"
+              isStudent ? "$5.00" : "$50.00"
             }
             duration={isStudent ? "Term" : "Term"}
             subtitle=" Includes all Basic Plan features plus additional resources, extended storage, and priority support"
@@ -139,7 +139,7 @@ const Pricing = () => {
                 <OfferList text="Payment tracking" status="active" />
                 <OfferList text="Access to CBT" status="active" />
                 <OfferList text="Access to live class" status="active" />
-                <OfferList text="Accessment Record" status="active" />
+                <OfferList text="Assessment Record" status="active" />
                 <OfferList text="Attendance record" status="active" />
                 {/* <OfferList text="Access to CBT" status="active" /> */}
                 <OfferList
@@ -148,7 +148,7 @@ const Pricing = () => {
                 />
                 <OfferList text="Behavioral performance" status="active" />
                 <OfferList text="Formative performance chart" status="active" />
-                <OfferList text="Sumative performance chart" status="active" />
+                <OfferList text="Summative performance chart" status="active" />
               </>
             ) : (
               <>
@@ -206,7 +206,7 @@ const Pricing = () => {
             price={
               isNigeria ? 
               isStudent ? "₦20,000" : "₦500,000" :
-              isStudent ? "$100.00" : "$500.00"
+              isStudent ? "$25.00" : "$300.00"
             }
             duration={isStudent ? "Term" : "Term"}
             subtitle=" All Standard Plan features plus advanced tools, unlimited storage, and personalized support."
@@ -236,13 +236,13 @@ const Pricing = () => {
                 />
                 <OfferList text="Formative performance chat" status="active" />
                 <OfferList text="IpSative performance chart" status="active" />
-                <OfferList text="Sumative performance chart" status="active" />
+                <OfferList text="Summative performance chart" status="active" />
                 <OfferList
                   text="Cumulative performance chart"
                   status="active"
                 />
                 <OfferList text="Task Manager" status="active" />
-                <OfferList text="Accessment Record" status="active" />
+                <OfferList text="Assessment Record" status="active" />
                 <OfferList text="Access to live class" status="active" />
               </>
             ) : (
