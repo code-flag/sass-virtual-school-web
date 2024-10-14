@@ -11,7 +11,7 @@ const Pricing = () => {
   const { isNigeria, error } = useIsNigeria();
 
   if (error) {
-    return alert(error);
+    alert(error);
   }
 
   // console.log("NIGGGGG", isNigeria)

@@ -6,6 +6,7 @@ import axios from "axios";
 import NewsLatterBox from "./NewsLatterBox";
 import { toast } from "react-toastify";
 
+interface Errors { email?: string, name?: string, phone?: string, subject?: string, message?: string }
 const Contact = () => {
   const BASE_URL = process.env.NEXT_PUBLIC_AUTH_URL;
   // Define state for form fields and errors
@@ -17,7 +18,7 @@ const Contact = () => {
     subject: "",
   });
   
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<Errors>({ email: '', name: ''});
   const [loading, setLoading] = useState(false);
 
   // Define Yup validation schema
@@ -39,7 +40,7 @@ const Contact = () => {
     e.preventDefault();
 
     // Reset errors before validation
-    setErrors({});
+    setErrors({ email: '' });
 
     try {
       // Validate form data
@@ -62,7 +63,7 @@ const Contact = () => {
     } catch (validationErrors) {
       if (validationErrors.name === "ValidationError") {
         // Collect validation errors
-        const formErrors = {};
+        const formErrors: { email: string } = { email: '' };
         validationErrors.inner.forEach((error) => {
           formErrors[error.path] = error.message;
         });
