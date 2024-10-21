@@ -3,8 +3,11 @@
 import { useState } from "react";
 import * as Yup from "yup";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import NewsLatterBox from "./NewsLatterBox";
-import { toast } from "react-toastify";
+import { R } from "@tanstack/react-query-devtools/build/legacy/ReactQueryDevtoolsPanel-D9deyZtU";
+
 
 interface Errors { email?: string, name?: string, phone?: string, subject?: string, message?: string }
 const Contact = () => {
@@ -50,14 +53,24 @@ const Contact = () => {
       setLoading(true)
       const res = await axios.post(`${BASE_URL}/contact/create`, formData);
 
-      setLoading(false)
+      // setLoading(false)
 
-      console.log("RESSSS", res)
+      if(res?.data?.status === "success"){
+        toast?.success(res?.data?.message || "Ticket Submitted Successfully")
+        // console.log("RESSSS", res)
+      }
+
+      // console.log("RESSSS", res)
+      
+      if(res?.data?.status !== "success"){
+        toast?.error(res?.data?.message || "An Error Occured, Please try again!")
+        // console.log("RESSSS", res)
+      }
 
       // Clear the form after successful submission
       setFormData({ name: "", email: "", message: "", phone:"", subject:"" });
 
-      alert("Ticket submitted successfully!");
+      // alert("Ticket submitted successfully!");
 
       setLoading(false)
     } catch (validationErrors) {
@@ -69,7 +82,7 @@ const Contact = () => {
         });
         setErrors(formErrors);
       } else {
-        alert("An error occurred while submitting the ticket.");
+        toast?.error("An error occurred while submitting the ticket.")
         setLoading(false)
       }
     }
@@ -77,6 +90,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="overflow-hidden py-16 md:py-20 lg:py-28">
+    <ToastContainer />
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4 lg:w-7/12 xl:w-8/12">
@@ -193,6 +207,7 @@ const Contact = () => {
                   </div>
                   <div className="w-full px-4">
                     <button
+                    disabled={loading}
                       type="submit"
                       className="rounded-sm bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark"
                     >
